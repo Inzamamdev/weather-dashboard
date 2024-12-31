@@ -1,9 +1,12 @@
 import { LucideIcon } from "lucide-react";
+
 type AuthInputProps = {
   icon: LucideIcon;
   type: string;
   name: string;
   placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function AuthInput({
@@ -11,12 +14,16 @@ export default function AuthInput({
   type,
   name,
   placeholder,
+  value,
+  onChange,
 }: AuthInputProps) {
   return (
     <>
       <div className="flex items-center w-full rounded-md mt-5">
         <Icon className=" absolute ml-2 h-5 w-5 text-gray-400" />
         <input
+          onChange={onChange}
+          value={value}
           type={type}
           name={name}
           placeholder={placeholder}
